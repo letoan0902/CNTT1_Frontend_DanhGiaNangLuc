@@ -1,12 +1,11 @@
-import { categoryNames as sampleCategoryNames } from '../data/sample.js';
 import { formatPrice } from '../utils/format.js';
 
 // Một dòng của bảng sản phẩm (trên điện thoại là một thẻ).
 // Props:
 // - product: object sản phẩm (bắt buộc)
-// - categoryNames: object { id danh mục: tên hiển thị } (không truyền thì dùng dữ liệu mẫu)
+// - categoryNames: object { id danh mục: tên hiển thị }, lấy từ API /api/categories (không bắt buộc)
 // - onEdit, onDelete: hàm được gọi với product khi bấm nút Sửa / Xoá (không bắt buộc)
-export default function ProductRow({ product, categoryNames = sampleCategoryNames, onEdit, onDelete }) {
+export default function ProductRow({ product, categoryNames = {}, onEdit, onDelete }) {
   const isActive = product.status === 'active';
   // Không tìm thấy tên danh mục thì hiển thị tạm id danh mục.
   const categoryName = categoryNames[product.category] ?? product.category;
