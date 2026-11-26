@@ -263,6 +263,38 @@ a.btn {
   pointer-events: none;
 }
 
+/* ===== Thanh tìm kiếm và bộ lọc ===== */
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.filters input,
+.filters select {
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #1f2937;
+  font: inherit;
+}
+
+/* Ô tìm kiếm chiếm hết phần còn lại của dòng; min-width: 0 để ô co lại được khi màn hình hẹp */
+.filter-search {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ===== Phân trang ===== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
 /* ===== Điện thoại (dưới 768px): mỗi sản phẩm là một thẻ, các ô xếp dọc =====
    Dùng 767.98px để chiều rộng lẻ như 767.5px (khi trình duyệt phóng to/thu nhỏ) vẫn tính là điện thoại. */
 @media (max-width: 767.98px) {
@@ -319,5 +351,10 @@ a.btn {
 
   .product-table .cell-name {
     font-weight: 600;
+  }
+
+  /* Ô tìm kiếm và hai ô lọc xếp dọc, mỗi ô rộng hết dòng */
+  .filters {
+    flex-direction: column;
   }
 }
